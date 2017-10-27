@@ -27,7 +27,31 @@ function fillTable(rows) {
 
 
 
-document.getElementById("sort-btn").addEventListener("click", function () {
+document.getElementById("btn-primary").addEventListener("click", function () {
+    tableData.sort(function (a, b) {
+        if (!a.key) {
+            return -1;
+        } else if (!b.key) {
+            return 1;
+        }
+        return a.key.localeCompare(b.key);
+    });
+    fillTable(tableData);
+});
+
+document.getElementById("btn-secondary").addEventListener("click", function () {
+    tableData.sort(function (a, b) {
+        if (!a.name) {
+            return -1;
+        } else if (!b.name) {
+            return 1;
+        }
+        return a.name.localeCompare(b.name);
+    });
+    fillTable(tableData);
+});
+
+document.getElementById("btn-tertiary").addEventListener("click", function () {
     tableData.sort(function (a, b) {
         if (!a.code) {
             return -1;
